@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gửi bạn Ngọc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="clouds" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <svg class="moon" viewBox="0 0 100 100" aria-hidden="true">
+    <mask id="moonMask"><rect width="100" height="100" fill="#fff"/><circle cx="68" cy="38" r="36" fill="#000"/></mask>
+    <circle cx="46" cy="52" r="38" fill="#fff6cf" mask="url(#moonMask)"/>
+  </svg>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="lights" id="lights" aria-hidden="true"></div>
+
+  <!-- Phong thư mở đầu -->
+  <div class="envelope-screen" id="envelopeScreen">
+    <div class="env" id="env" tabindex="0" role="button" aria-label="Mở thư">
+      <div class="env-back"></div>
+      <div class="paper">
+        <p class="paper-to" id="envTo"></p>
+        <p class="paper-sub">Có một điều mình muốn gửi bạn</p>
+      </div>
+      <div class="pocket"></div>
+      <div class="flap"></div>
+      <div class="seal">♥</div>
+    </div>
+    <p class="env-hint">Chạm vào lá thư để mở</p>
+  </div>
+
+  <!-- Khung trái tim -->
+  <main class="stage" id="stage">
+    <div class="frame" id="frame">
+      <div class="face front">
+        <div class="card">
+          <canvas id="heart" tabindex="0" role="img" aria-label="Trái tim lung linh trên cuốn sách, có tên Nguyễn Thị Hồng Ngọc ở giữa. Nhấn để thả hiệu ứng, dùng phím mũi tên để xoay."></canvas>
+          <div class="plate" id="plate"></div>
+        </div>
+      </div>
+      <div class="face back">
+        <div class="card letter-card">
+          <div class="letter">
+            <p class="to" id="to"></p>
+            <p class="msg" id="msg"></p>
+            <p class="from" id="from"></p>
+            <p class="days" id="days"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Tờ giấy ghi chú bên trái -->
+  <aside class="note" id="note" aria-label="Vì sao mình thích bạn">
+    <p class="note-title">Vì sao mình thích bạn</p>
+    <ul id="reasons"></ul>
+  </aside>
+
+  <!-- Thẻ nhạc bên phải -->
+  <aside class="music" id="music" aria-label="Bài hát gửi bạn">
+    <div class="vinyl" id="vinyl" role="button" tabindex="0" aria-label="Phát hoặc dừng nhạc"><span>♥</span></div>
+    <p class="music-label">Bài hát mình muốn gửi bạn</p>
+    <p class="music-title" id="songTitle"></p>
+    <p class="music-artist" id="songArtist"></p>
+    <div class="bar"><i id="barFill"></i></div>
+    <div class="eq"><b></b><b></b><b></b><b></b><b></b></div>
+    <button class="play" id="playBtn" type="button">▶ Phát nhạc</button>
+    <div class="music-files">
+      <p>Chọn nhiều bài hát để phát lần lượt:</p>
+      <label class="pick">Thêm bài hát<input type="file" id="pickFile" accept="audio/*" multiple hidden></label>
+      <p class="queue-status" id="queueStatus" aria-live="polite"></p>
+    </div>
+    <div class="music-note">
+      <p>Không phát được nhạc? Dán link YouTube vào đây:</p>
+      <input type="text" id="ytLink" placeholder="Dán link YouTube rồi nhấn Enter" autocomplete="off">
+    </div>
+  </aside>
+
+  <!-- Danh sách bài hát gợi ý, nằm cạnh thẻ nhạc -->
+  <aside class="playlist" id="playlist" aria-label="Danh sách bài hát gợi ý">
+    <p class="pl-title">Gợi ý cho bạn</p>
+    <ul id="plList"></ul>
+  </aside>
+
+  <!-- Dải chữ chạy phía dưới -->
+  <div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
+
+  <p class="hint">Kéo để xoay · Chạm vào trái tim để thả hiệu ứng · Lật mặt sau để đọc thư</p>
+  <script src="script.js"></script>
+</body>
+</html>
